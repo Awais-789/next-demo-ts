@@ -1,44 +1,36 @@
-import { Inter } from 'next/font/google';
-import { Carousel } from '@/components/ui/carousel';
-import { Button } from '@/components/ui/button';
+import Link from "next/link"
 
-const inter = Inter({ subsets: ['latin'] });
+const categories = [
+  { name: "Fruits", icon: "/fruit-1.png" },
+  { name: "Vegetables", icon: "/fruits-and-vegetables-1.png" },
+  { name: "Meat", icon: "/beef-1.png" },
+  { name: "Seafood", icon: "/crab-1.png" },
+  { name: "Snacks", icon: "/nachos-1.png" },
+  { name: "Beverages", icon: "/soft-drink-1.png" },
+  { name: "Frozen", icon: "/frozen-1.png" },
+  { name: "Bread & Tortilla", icon: "/bread-1.png" },
+  { name: "Household", icon: "/home-1.png" },
+]
 
-const Home = () => {
+export default function CategoryNav() {
   return (
-    <div className={`${inter.className} bg-secondary text-primary`}>
-      <div className="container mx-auto py-16">
-        <div className="bg-white rounded-lg shadow-md">
-          <Carousel>
-            <div className="flex items-center justify-between px-6 py-8">
-              <div>
-                <h2 className="text-3xl font-bold mb-4">We Always Provide Healthy Products</h2>
-                <p className="text-lg mb-6">Browse our wide selection of fresh, nutritious foods.</p>
-                <Button className="bg-accent text-white px-6 py-2 rounded-lg">Explore Now</Button>
-              </div>
-              <img src="/healthy-products.jpg" alt="Healthy Products" className="w-1/2 rounded-lg shadow-md" />
-            </div>
-            <div className="flex items-center justify-between px-6 py-8">
-              <div>
-                <h2 className="text-3xl font-bold mb-4">Discover New Flavors</h2>
-                <p className="text-lg mb-6">Our diverse product range has something for everyone.</p>
-                <Button className="bg-accent text-white px-6 py-2 rounded-lg">Browse Now</Button>
-              </div>
-              <img src="/new-flavors.jpg" alt="New Flavors" className="w-1/2 rounded-lg shadow-md" />
-            </div>
-            <div className="flex items-center justify-between px-6 py-8">
-              <div>
-                <h2 className="text-3xl font-bold mb-4">Healthy Living Starts Here</h2>
-                <p className="text-lg mb-6">Elevate your wellness with our premium products.</p>
-                <Button className="bg-accent text-white px-6 py-2 rounded-lg">Shop Now</Button>
-              </div>
-              <img src="/healthy-living.jpg" alt="Healthy Living" className="w-1/2 rounded-lg shadow-md" />
-            </div>
-          </Carousel>
-        </div>
-      </div>
+    <div className="flex items-center justify-center mx-auto w-full max-w-[1180px] gap-8 overflow-x-auto py-8 px-4 bg-white rounded-lg border-">
+      {categories.map((category) => (
+        <Link
+          key={category.name}
+          href={`/category/${category.name.toLowerCase()}`}
+          className="flex flex-col items-center gap-2 min-w-[80px]"
+        >
+          <img
+            src={category.icon}
+            alt={category.name}
+            className="w-12 h-12 object-contain"
+          />
+          <span className="text-sm text-gray-600">{category.name}</span>
+        </Link>
+      ))}
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+

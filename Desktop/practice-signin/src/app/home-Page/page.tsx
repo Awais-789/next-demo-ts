@@ -4,7 +4,7 @@ import Footer from '../footer/footer'
 import { Button } from '@/components/ui/button'
 import { Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
-import { Carousel } from '@/components/ui/carousel'
+import { ScrollArea } from '@radix-ui/react-scroll-area'
 
 const page = () => {
 
@@ -61,7 +61,7 @@ const page = () => {
           </button>
         ))}
       </div> */}
-      <Carousel>
+      <ScrollArea>
         <div className="flex flex-nowrap gap-4">
           {[
             { label: "Fruits", icon: "🍉" },
@@ -83,12 +83,12 @@ const page = () => {
             </button>
           ))}
         </div>
-      </Carousel>
+      </ScrollArea>
 
-      <section className="container mx-auto py-8 px-4 flex justify-between">
+      <section className="container mx-auto py-8 px-4 w-[361px] h-[240px] ">
         <h2 className="text-primary text-2xl font-bold mb-4">Smart Choices</h2>
-        <Carousel>
-          <div className="flex gap-4">
+        <ScrollArea>
+          <div className="flex gap-6 ">
             {[
               {
                 title: "Italian Pizza",
@@ -118,7 +118,7 @@ const page = () => {
               </div>
             ))}
           </div>
-        </Carousel>
+        </ScrollArea>
       </section>
 
       {/* Featured Section */}
