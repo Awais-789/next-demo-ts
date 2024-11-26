@@ -1,35 +1,42 @@
 import React from 'react'
 import Header from '@/app/header/header'
-import { ScrollArea } from '@radix-ui/react-scroll-area'
 import Footer from '../footer/footer'
+import { Button } from '@/components/ui/button'
+import { Search } from 'lucide-react'
+import { Input } from '@/components/ui/input'
+import { Carousel } from '@/components/ui/carousel'
 
 const page = () => {
 
   return (
     <div>
       <Header />
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-4">
-        {/* Hero Section */}
-        <div className="flex flex-col text-center lg:text-left gap-2">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary">
+      <section className="relative h-[500px] flex items-center justify-center text-center">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/fruits.png')",
+          }}
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative max-w-3xl mx-auto px-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-8">
             We Always Provide
             <br />
             Healthy Products
           </h1>
-          <div className="relative mt-4 w-full lg:max-w-md">
-            <input
-              type="text"
+          <div className="flex items-center max-w-md mx-auto bg-white rounded-lg">
+            <Input
+              type="search"
               placeholder="What are you looking for..."
-              className="w-full px-4 py-2 border border-secondary rounded-full focus:outline-none focus:ring-2 focus:ring-accent"
+              className="border-0 focus-visible:ring-0"
             />
-            <button
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-accent px-4 py-2 text-primary rounded-full"
-            >
-              🔍
-            </button>
+            <Button size="icon" className="rounded-l-none">
+              <Search className="h-4 w-4" />
+            </Button>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Categories */}
 
@@ -54,7 +61,7 @@ const page = () => {
           </button>
         ))}
       </div> */}
-      <ScrollArea>
+      <Carousel>
         <div className="flex flex-nowrap gap-4">
           {[
             { label: "Fruits", icon: "🍉" },
@@ -76,27 +83,27 @@ const page = () => {
             </button>
           ))}
         </div>
-      </ScrollArea>
+      </Carousel>
 
-      <section className="container mx-auto py-8 px-4">
+      <section className="container mx-auto py-8 px-4 flex justify-between">
         <h2 className="text-primary text-2xl font-bold mb-4">Smart Choices</h2>
-        <ScrollArea>
+        <Carousel>
           <div className="flex gap-4">
             {[
               {
                 title: "Italian Pizza",
                 description: "Product description is going here to describe about the product.",
-                image: "pizza.jpg", // Replace with image paths
+                image: "/Group-207.png",
               },
               {
                 title: "Perfect Egg Dish",
                 description: "Product description is going here to describe about the product.",
-                image: "egg.jpg",
+                image: "/Group-208.png",
               },
               {
                 title: "Masala Chicken Curry",
                 description: "Product description is going here to describe about the product.",
-                image: "curry.jpg",
+                image: "/Group-209.png",
               },
             ].map((item, index) => (
               <div
@@ -111,7 +118,7 @@ const page = () => {
               </div>
             ))}
           </div>
-        </ScrollArea>
+        </Carousel>
       </section>
 
       {/* Featured Section */}

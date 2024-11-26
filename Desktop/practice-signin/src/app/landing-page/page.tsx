@@ -77,6 +77,10 @@ export default function LandingPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left Column */}
           <div className="space-y-6 max-w-xl">
+            <img
+              src="/Ellipse 8.png"
+              alt="left side of hero section"
+            />
             <h1 className="text-4xl md:text-6xl font-bold text-black leading-tight">
               We Always Provide Best Products
             </h1>
@@ -91,6 +95,10 @@ export default function LandingPage() {
           {/* Right Column */}
           <div className="relative">
             <div className="relative z-10">
+              <img
+                src="/Ellipse 1.png"
+                alt="behind the cover"
+              />
               <img
                 src="/lady-trans-1.png"
                 alt="Woman with groceries"
@@ -365,48 +373,48 @@ export default function LandingPage() {
         </div>
       </div>
       <section
-  className="relative flex items-center justify-center w-full h-screen overflow-hidden"
->
-  <div
-    className="relative w-full max-w-[1087px] h-[344px] rounded-[43px] overflow-hidden"
-  >
-    <img
-      src="/Rectangle-20.png"
-      alt="Newsletter Background"
-      className="w-full h-full object-cover"
-    />
-    <div className="absolute inset-0"></div>
-    <div className="absolute inset-0 flex flex-col items-center justify-center space-y-6 text-center z-10">
-      {/* Heading */}
-      <h2 className="text-3xl font-bold tracking-tighter text-primary sm:text-4xl " >
-        Sign Up For Our News Letter
-      </h2>
-
-    
-      <div className="flex items-center mx-auto max-w-[600px] space-x-2">
-        <div className="relative w-[347px]">
-          <span className="absolute inset-y-0 left-4 flex items-center text-gray-400">
-            <img
-              src="/msg.png"
-              alt="Message Icon"
-              className="w-5 h-5"
-            />
-          </span>
-
-          <input
-            className="w-full h-12 bg-white text-gray-900 rounded-full pl-12 pr-4 py-3 border border-gray-300 focus:outline-none"
-            placeholder="Put your email address here..."
-            type="email"
+        className="relative flex items-center justify-center w-full h-screen overflow-hidden"
+      >
+        <div
+          className="relative w-full max-w-[1087px] h-[344px] rounded-[43px] overflow-hidden"
+        >
+          <img
+            src="/Rectangle-20.png"
+            alt="Newsletter Background"
+            className="w-full h-full object-cover"
           />
-        </div>
+          <div className="absolute inset-0"></div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center space-y-6 text-center z-10">
+            {/* Heading */}
+            <h2 className="text-3xl font-bold tracking-tighter text-primary sm:text-4xl " >
+              Sign Up For Our News Letter
+            </h2>
 
-        <button className="bg-yellow-400 text-black font-bold px-6 py-3 rounded-full hover:bg-yellow-500 w-[120px] h-12">
-          Send
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+
+            <div className="flex items-center mx-auto max-w-[600px] space-x-2">
+              <div className="relative w-[347px]">
+                <span className="absolute inset-y-0 left-4 flex items-center text-gray-400">
+                  <img
+                    src="/msg.png"
+                    alt="Message Icon"
+                    className="w-5 h-5"
+                  />
+                </span>
+
+                <input
+                  className="w-full h-12 bg-white text-gray-900 rounded-full pl-12 pr-4 py-3 border border-gray-300 focus:outline-none"
+                  placeholder="Put your email address here..."
+                  type="email"
+                />
+              </div>
+
+              <button className="bg-yellow-400 text-black font-bold px-6 py-3 rounded-full hover:bg-yellow-500 w-[120px] h-12">
+                Send
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
 
       <div>
