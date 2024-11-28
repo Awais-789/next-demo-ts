@@ -1,19 +1,31 @@
 "use client"
-import React, { useState } from "react";
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { Checkbox } from '@/components/ui/checkbox'
-import Modal from "@/components/Modal/Modal";
+import { Input } from '@/components/ui/input'
+import React from 'react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 
-const page = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+// Define Zod validation schema
+const signUpSchema = z.object({
+  username: z.string().min(5, 'Username must be at least 5 characters long'),
+  email: z.string().email('Please enter a valid email address'),
+  password: z.string().min(6, 'Password must be at least 6 characters long'),
+});
 
-  const handleModalOpen = () => {
-    setIsModalOpen(true);
-  };
+type SignUpFormData = z.infer<typeof signUpSchema>;
 
-  const handleModalClose = () => {
-    setIsModalOpen(false);
+const signUpPage = () => {
+
+   // Use react-hook-form with Zod resolver for form handling and validation
+   const { register, handleSubmit, formState: { errors } } = useForm<SignUpFormData>({
+    resolver: zodResolver(signUpSchema),
+  });
+
+  // Form submit handler
+  const onSubmit = (data: SignUpFormData) => {
+    console.log(data);
   };
 
   return (
@@ -37,41 +49,41 @@ const page = () => {
             </a>
           </p>
 
-          <form className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
 
             <div>
               <label className="text-[#3f4254] text-sm font-medium block mb-2 ms-5">User Name</label>
               <Input
                 type="text"
-                className="w-full rounded-full bg-secondary "
+                className=" rounded-full bg-secondary w-[440px] h-[70px] "
+                {...register('username')}
               />
+              {errors.username && <p className="text-red-500 text-sm">{errors.username.message}</p>}
             </div>
 
             <div>
               <label className="text-[#3f4254] text-sm font-medium block mb-2 ms-5">Email</label>
               <Input
                 type="text"
-                className="w-full rounded-full bg-secondary "
+                className=" rounded-full bg-secondary w-[440px] h-[70px] "
+                {...register('email')}
               />
+              {errors.email && <p className='text-red-500 text-sm'>{errors.email.message}</p>}
             </div>
 
 
             <div>
               <div className="flex justify-between ">
                 <label className="text-[#3f4254] text-sm font-medium block mb-2 ms-5">Password</label>
-                {/* <a
-                href="/forgot-password"
-                className="text-sm text-accent font-medium ml-2"
-              >
-                Forgot Password?
-              </a> */}
               </div>
               <div className="flex justify-between items-center">
                 <Input
                   type="password"
-                  className=" rounded-full bg-secondary w-full"
+                  className=" rounded-full bg-secondary  w-[440px] h-[70px] "
+                  {...register('password')}
                 />
               </div>
+              {errors.password && <p className='text-red-500 text-sm'>{errors.password.message}</p>}
             </div>
 
             <div className="flex items-start gap-2 mt-4">
@@ -81,7 +93,6 @@ const page = () => {
                 className="text-sm text-secondary leading-tight"
               >
                 Creating an account means you’re okay with our Terms of Service, Privacy Policy, and our default Notification Settings.
-
               </label>
             </div>
 
@@ -92,33 +103,13 @@ const page = () => {
               <Button
                 variant="outline"
                 type="button"
-                onClick={handleModalOpen}
-                className="flex items-center w-full justify-center gap-2 border-accent text-accent py-2 rounded-full md:w-[234px] h-[61px] top-[676px] left-[977px] "
+                className="flex items-center w-full justify-center gap-2 border-accent text-accent py-2 rounded-full md:w-[234px] h-[61px] top-[676px] left-[977px]  mr-36"
               >
                 <img src="/google.png" alt="Google" className="w-[2opx] h-[20px]" />
                 Sign up with Google
               </Button>
             </div>
           </form>
-
-          {/* Modal */}
-          <Modal open={isModalOpen} onClose={handleModalClose}>
-        {/* Modal content goes here */}
-        <form className="space-y-4">
-          <div>
-            <label htmlFor="email" className="block font-medium text-gray-700">
-              Your email
-            </label>
-            <input
-              id="email"
-              type="email"
-              className="mt-1 block w-full rounded-md bg-gray-100 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            />
-          </div>
-          {/* Add more form fields here */}
-        </form>
-      </Modal>
-
 
           <div className="flex font-poppins justify-between align-center mt-40 text-sm text-accent w-[325px] h-[31] top-[916px] left-[771px] ">
             <a href="/terms" className="w-[#FBD54E]">
@@ -134,4 +125,4 @@ const page = () => {
   )
 }
 
-export default page
+export default signUpPage

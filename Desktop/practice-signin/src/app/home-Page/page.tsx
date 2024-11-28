@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import Header from '@/app/header/header'
 import Footer from '../footer/footer'
@@ -5,6 +6,8 @@ import { Button } from '@/components/ui/button'
 import { Search } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { ScrollArea } from '@radix-ui/react-scroll-area'
+import { Carousel } from '@/components/ui/carousel'
+import CategoryNav from '../slider/page'
 
 const page = () => {
 
@@ -36,6 +39,11 @@ const page = () => {
             </Button>
           </div>
         </div>
+        <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-[90%] bg-white rounded-3xl shadow-lg p-4">
+        <div className="flex justify-between items-center overflow-x-auto space-x-4">
+          <CategoryNav/>
+          </div>
+          </div>
       </section>
 
       {/* Categories */}
@@ -61,7 +69,7 @@ const page = () => {
           </button>
         ))}
       </div> */}
-      <ScrollArea>
+      {/* <ScrollArea>
         <div className="flex flex-nowrap gap-4">
           {[
             { label: "Fruits", icon: "🍉" },
@@ -83,12 +91,13 @@ const page = () => {
             </button>
           ))}
         </div>
-      </ScrollArea>
+      </ScrollArea> */}
+    
 
-      <section className="container mx-auto py-8 px-4 w-[361px] h-[240px] ">
+      
+      <section className="container mx-auto py-8 px-4 mt-24 ">
         <h2 className="text-primary text-2xl font-bold mb-4">Smart Choices</h2>
-        <ScrollArea>
-          <div className="flex gap-6 ">
+          <div className=" gap-6 flex items-center justify-center text-center">
             {[
               {
                 title: "Italian Pizza",
@@ -118,7 +127,6 @@ const page = () => {
               </div>
             ))}
           </div>
-        </ScrollArea>
       </section>
 
       {/* Featured Section */}

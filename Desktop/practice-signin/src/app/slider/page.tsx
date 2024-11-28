@@ -14,7 +14,7 @@ const categories = [
 
 export default function CategoryNav() {
   return (
-    <div className="flex items-center justify-center mx-auto w-full max-w-[1180px] gap-8 overflow-x-auto py-8 px-4 bg-white rounded-lg border-">
+    <div className="flex items-center justify-center mx-auto w-full max-w-[1180px] gap-8 overflow-x-auto py-8 px-4 bg-white rounded-lg border-"    >
       {categories.map((category) => (
         <Link
           key={category.name}

@@ -2,10 +2,9 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Leaf, ShoppingCart, MapPin, Check, Star, Heart, Quote, Omega } from 'lucide-react';
+import { FileText, Leaf, ShoppingCart, MapPin, Check, Star, Heart } from 'lucide-react';
 import { Headphones } from "lucide-react";
 import Footer from '@/app/footer/footer';
-import { Input } from "@/components/ui/input";
 
 
 
@@ -159,7 +158,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
-              <Card key={index} className="p-6 bg-white hover:shadow-lg transition-shadow">
+              <Card key={index} className="p-6 bg-white hover:shadow-lg transition-shadow duration-300 shadow-lg hover:-translate-y-1">
                 <div className={`${step.bgColor} w-12 h-12 rounded-lg flex items-center justify-center mb-4`}>
                   {step.icon}
                 </div>
@@ -362,7 +361,7 @@ export default function LandingPage() {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-[#FBD54E]/10 rounded-2xl p-8 text-center hover:shadow-lg transition-shadow"
+                className="bg-[#FBD54E]/10 rounded-2xl p-8 text-center hover:shadow-lg transition-shadow duration-300 shadow-lg hover:-translate-y-1"
               >
                 <h3 className="text-4xl font-bold mb-2">{stat.number}</h3>
                 <p className="font-semibold mb-2">{stat.title}</p>
