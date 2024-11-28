@@ -124,7 +124,7 @@ const Footer = () => {
               </span>
             ))}
           </div> */}
-           <div className="flex space-x-3 mt-2">
+          {/* <div className="flex space-x-3 mt-2">
             {["Facebook", "Twitter", "Linkedin", "Instagram"].map((name) => (
               <Button key={name} size="icon" variant="outline" className="bg-accent p-2 rounded-full h-auto w-auto">
                 <Image
@@ -136,7 +136,24 @@ const Footer = () => {
                 <span className="sr-only">{name}</span>
               </Button>
             ))}
+          </div> */}
+
+          <div className="flex space-x-3 mt-2">
+            {["Facebook", "Twitter", "Linkedin", "Instagram"].map((name) => (
+              <Link key={name} href={`https://www.${name.toLowerCase()}.com/`}>
+                <Button size="icon" variant="outline" className="bg-accent p-2 rounded-full h-auto w-auto">
+                  <Image
+                    src={`/${name.toLowerCase()}.png`}
+                    alt={name}
+                    width={14}
+                    height={14}
+                  />
+                  <span className="sr-only">{name}</span>
+                </Button>
+              </Link>
+            ))}
           </div>
+
         </>
       ),
       style: "w-[20%] min-w-[150px]",
