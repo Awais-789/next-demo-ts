@@ -199,11 +199,17 @@ export default function Header() {
         <div className="flex gap-6 items-center">
           {icons.map((icon, index) => (
             <div key={index} className="relative flex items-center justify-center">
-              <Link href={icon.href}>
-                <a className="text-primary">
+              {icon.href ? (
+                <Link href={icon.href}>
+                  <div className="text-primary">
+                    <img src={icon.src} alt={icon.alt} className="w-6 h-6" />
+                  </div>
+                </Link>
+              ) : (
+                <button className="text-primary" aria-label={icon.alt}>
                   <img src={icon.src} alt={icon.alt} className="w-6 h-6" />
-                </a>
-              </Link>
+                </button>
+              )}
               {icon.badge && (
                 <span className="absolute -top-2 -right-2 bg-accent text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
                   {icon.badge}
